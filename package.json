@@ -1,0 +1,10 @@
+{
+  "name": "nekomimi-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "SumonRayy <sumonrayy@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
