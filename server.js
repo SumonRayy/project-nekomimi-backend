@@ -1,19 +1,12 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
 
 const { PORT } = require('./src/config');
 const db = require('./src/models');
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-
-db.mongoose.connect(db.url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+db.mongoose.connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('🙊 Connected to MongoDB server!');
     })
@@ -21,6 +14,13 @@ db.mongoose.connect(db.url, {
         console.log('💔 Error connecting to MongoDB: ', err);
     });
 
+
+app.get('/', (req, res) => {
+    res.send('Hello Neko!');
+});
+
+
+require('./src/routes/videos.routes')(app);
 
 
 app.listen(PORT, () => {
