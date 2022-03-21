@@ -56,3 +56,23 @@ exports.upload = (req, res) => {
             });
         });
 }
+
+exports.search = (req, res) => {
+    const query = req.body.query;
+
+    console.log("query : ", query);
+
+    Video.find({
+        $or: [
+            { title: { $regex: query, $options: 'i' } },
+            { description: { $regex: query, $options: 'i' } },
+            { tags: { $regex: query, $options: 'i' } }
+        ]
+    }).then(videos => {
+        res.send(videos);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving videos."
+        });
+    });
+}

@@ -11,5 +11,8 @@ module.exports = app => {
     // upload a new video
     router.post('/', videos.upload);
 
+    // search videos
+    router.post('/search', videos.search);
+
     app.use('/api/videos', router);
 };  
