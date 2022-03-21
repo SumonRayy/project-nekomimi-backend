@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "SumonRayy <sumonrayy@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
   "devDependencies": {
     "nodemon": "^2.0.15"
   }
